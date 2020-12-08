@@ -14,24 +14,30 @@ let colorStates = {
 // Without JavaScript, clicking on these heart shapes does nothing. Uncomment
 // this code and refresh the demo page.
 
-// let articleHearts = document.querySelectorAll(".like-glyph");
+ let articleHearts = document.querySelectorAll(".like-glyph");
 
 function likeCallback(e) {
   let heart = e.target;
   mimicServerCall()
     .then(function(serverMessage){
+       console.log("finished the call");
       // STEP 2: Uncomment the next 3 lines.
       // We'll use Pillar 1 (DOM Manipulation) to update the screen and
       // mimic Pillar 3 (Server Communication) to only update the screen if the
       // sending of information to the server succeeds.
       alert("You notified the server!");
-      // alert(serverMessage);
-      // heart.innerText = glyphStates[heart.innerText];
-      // heart.style.color = colorStates[heart.style.color];
+         alert(serverMessage);
+         heart.innerText = glyphStates[heart.innerText];
+         heart.style.color = colorStates[heart.style.color];
     })
     .catch(function(error) {
       alert("Something went wrong!");
     });
+    console.log("hello");
+     console.log("hello");
+      console.log("hello");
+       console.log("hello");
+        console.log("hello");
 }
 
 // STEP 3: In order for the call to the server and the update of the screen to
@@ -39,9 +45,9 @@ function likeCallback(e) {
 // code when an "event" is fired. That's Pillar 2, event handling. Uncomment
 // this code.
 
-//for (let glyph of articleHearts) {
-  //glyph.addEventListener("click", likeCallback);
-//}
+for (let glyph of articleHearts) {
+  glyph.addEventListener("click", likeCallback);
+}
 
 // STEP 4: 
 
@@ -55,6 +61,7 @@ function likeCallback(e) {
 //------------------------------------------------------------------------------
 
 function mimicServerCall() {
+   console.log("Making call");
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
       resolve("Pretend remote server notified of action!");
